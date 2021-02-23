@@ -1,0 +1,18 @@
+#favNavb {}
+
+.logoNav-sizing {
+  height: 50px;
+  width: 250px;
+  margin: 5px;
+}
+
+#search {
+  margin:5px;
+}
+
+@media only screen and (max-width: 475px) {
+  .logoNav-sizing {
+    width: 25;
+  }
+
+}
