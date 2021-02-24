@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
 // Script for favorites list++
 
 var boardTitles = []
-var nowTitle = ["Javier"];
+var nowTitle = "";
 
 // SavFav function created
 function SavFav() {
@@ -37,10 +37,12 @@ function retreiveFav() {
 document.getElementById('addfavBtn').addEventListener('click', event => {
   event.preventDefault();
 
-  nowTitle = document.getElementById('titletest').value
+  nowTitle = document.getElementById('wishlist').value
 
   SavFav();
 
   retreiveFav();
 
-})
+
+
+
