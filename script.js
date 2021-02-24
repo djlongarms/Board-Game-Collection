@@ -37,6 +37,8 @@ function retreiveFav() {
 document.getElementById('addfavBtn').addEventListener('click', event => {
   event.preventDefault();
 
+  nowTitle = document.getElementById('titletest').value
+
   SavFav();
 
   retreiveFav();
