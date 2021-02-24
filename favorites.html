@@ -5,41 +5,43 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel="stylesheet" href="style.css">
   <title>Document</title>
-<style>
-  .col{
-    background-color: grey;
-    border: 1px solid black;
-    margin-right: 3rem;
-  }
-  
-  @media only screen and (min-width: 600px;) {
-  
- .l4{
-   height: 35rem;
-   margin-top: 4rem;
- }
- .l2{
-   height: 50rem;
-   margin-left: 1rem;
- }
-   }
-</style>
 </head>
 <body>
   <!-- navbar from Javier/ placholder-->
 <div class="row" style="height: 5rem; background-color: black; margin-bottom: 5rem;"></div>
 <!-- my work -->
 
-<div class="row">
-<div class="col l2  test hide-on-small-only"></div>
-<div class="col sm12 m12 l4 test"></div>
-<div class="col sm12 m12 l4 test"></div>
+<div class="row ">
+<!-- favorites column/ carousel -->
+<div class="col sm12 m12 l4 carouselCol">
+  <h1>Favorites</h1>
+</div>
+<!-- wishlist column/ carousel -->
+<div class="col sm12 m12 l4 carouselCol">
+  <h1>Wishlist</h1>
+</div>
+  <!-- 'other column' -->
+<div class="col sm12 m12 l2">
+  <h1>Other</h1>
+</div>
 
 </div>
 
 <!-- footer by Andrew -->
-
+<footer class="page-footer">
+  <div class="container">
+    <img class="image-footer" src="./logo_3.png" alt="logo">
+  </div>
+  <div class="footer-copyright">
+    <div class="container">
+      © 2021 Boardom Fighter
+      <a class="grey-text text-lighten-4 right"
+        href="https://github.com/djlongarms/Board-Game-Collection/tree/main">Github Repo!</a>
+    </div>
+  </div>
+</footer>
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>  
 </body>
