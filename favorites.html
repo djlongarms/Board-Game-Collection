@@ -4,26 +4,70 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- materialize CDN -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <!-- icon CDN -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <title>Document</title>
+  <title>Favorites</title>
 </head>
 <body>
   <!-- navbar from Javier/ placholder-->
-<div class="row" style="height: 5rem; background-color: black; margin-bottom: 5rem;"></div>
+<nav class="navBar">
+
+  <!-- nav bar color -->
+  <div class="nav-wrapper grey darken-4">
+
+    <!-- nav bar logo sizing -->
+    <a href="./index.html" class="brand-logo center">
+      <div class="logoNav-sizing">
+        <img class="logoNav-sizing" src="assets/logo_3.png">
+      </div>
+    </a>
+
+
+    <!-- favorites link -->
+    <ul id="nav-mobile" class="right hide-on-med-and-down ">
+      <li><a class="white-text" id="favNavb" href="favorites.html">Favorites</a></li>
+    </ul>
+
+
+    <!-- search icon -->
+    <ul id="nav-mobile" class="left hide-on-med-and-down ">
+      <li>
+        <a href="./search.html"><i class="material-icons">search</i></a>
+      </li>
+      </li>
+    </ul>
+
+
+    <!-- code for navbar icon -->
+    <div class="nav">
+      <ul class="sidenav" id="mobile-demo">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="./favorites.html">Favorites</a></li>
+        <li><a href="./search.html">Search</a></li>
+      </ul>
+    </div>
+
+    <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons white-text">menu</i></a>
+    <!-- end code for nav bar icon -->
+
+  </div>
+</nav>
 <!-- my work -->
 
-<div class="row ">
+<div class="row fav">
 <!-- favorites column/ carousel -->
-<div class="col sm12 m12 l4 carouselCol">
+<div class="col sm12 m12 l4 carouselCol box spaceBetween">
   <h1>Favorites</h1>
 </div>
 <!-- wishlist column/ carousel -->
-<div class="col sm12 m12 l4 carouselCol">
+<div class="col sm12 m12 l4 carouselCol box spaceBetween">
   <h1>Wishlist</h1>
 </div>
   <!-- 'other column' -->
-<div class="col sm12 m12 l2">
+<div class="col sm12 m12 l2 otherCol box spaceBetween">
   <h1>Other</h1>
 </div>
 
@@ -42,7 +86,8 @@
     </div>
   </div>
 </footer>
-  
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>  
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script> 
+  <script src="app.js"></script> 
 </body>
 </html>
