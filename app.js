@@ -4,4 +4,3 @@ document.addEventListener('DOMContentLoaded', function () {
   var instances = M.Sidenav.init(elems, {});
 });
 // end of script for nav bar
-console.log('yolo')
