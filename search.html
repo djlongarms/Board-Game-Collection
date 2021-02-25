@@ -47,38 +47,45 @@
 
     </div>
   </nav>
-  <!-- my work -->
-  <div class="row fav">
-                    <!-- search function -->
-    <div class="col sm12 m12 l2 box">
-      <form>
-      <label for="search">Search Game</label>
-    
-      <input type="text" id="game">
-      <button class="btn waves-effect waves-light" type="submit" name="action">Search
-        <i class="material-icons right">search</i>
-      </button>
-    </form>
-    <hr>
-    <p><strong>Search History</strong></p>
-    <p>
-     <hr>
-      <div class="historyItem center">example</div>
-    </p>
-   
-    </div>
-                    <!-- Results -->
-    <div class="col sm12 m12 l9">
-      <h2 class="center" id="resultsDiv">
-        Results for:
-      </h2>
-    </div>
-  </div>
+  <main>
 
-  <!-- footer by Andrew -->
-  <footer class="page-footer">
-    <div class="container">
-      <img class="image-footer" src="./logo_3.png" alt="logo">
+    <!-- my work -->
+    <div class="row fav">
+      <!-- search function -->
+      <div class="col sm12 m12 l2 box">
+        <form>
+          <label for="search">Search Game</label>
+          
+          <input type="text" id="game">
+          <button id="search-btn" class="btn waves-effect waves-light" type="submit" name="action">Search
+            <i class="material-icons right">search</i>
+          </button>
+        </form>
+        
+        <p><strong>Search History</strong></p>
+        <p>
+          <hr>
+          <div class="historyItem center">
+            <ul id="search-history" class="collection"></ul>
+          </div>
+          
+        </p>
+        
+      </div>
+      <!-- Results -->
+      <div id="resultsDiv" class="col sm12 m12 l9">
+        <h2 class="center">
+          Results for:
+        </h2>
+      </div>
+    </div>
+    
+  </main>
+
+    <!-- footer by Andrew -->
+    <footer class="page-footer">
+      <div class="container">
+        <img class="image-footer" src="./logo_3.png" alt="logo">
     </div>
     <div class="footer-copyright">
       <div class="container">
@@ -90,7 +97,7 @@
   </footer>
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-  <script src="./app.js"></script>
+  <script src="./search.js"></script>
 </body>
 
 </html>
