@@ -7,17 +7,22 @@ document.getElementById('addfavBtn').addEventListener('click', event => {
 
   event.preventDefault()
 
-  let favElem = document.createElement('li')
 
-  favElem.className = 'fav-list-item'
+  axios.get('https://www.boardgameatlas.com/api/search?name=monopoly&limit=100&client_id=JLBr5npPhV')
+    .then(res => {
+      console.log(res.data.games[0].name)
 
-  favElem.textContent = 'Game title here'
+      let favElem = document.createElement('li')
 
-  document.getElementById('favList').append(favElem)
+      favElem.className = 'fav-list-item'
 
-  document.getElementById('')
+      favElem.textContent = (res.data.games[0].name)
 
+      document.getElementById('favList').append(favElem)
 
+      document.getElementById('')
+
+    })
 })
 
 
