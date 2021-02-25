@@ -2,62 +2,96 @@
 // // Script for favorites list++
 
 // let titleArray = [] || JSON.parse(localStorage.getItem("Game Title"))
-// var boardTitles = []
-// var nowTitle = "";
+var boardTitles = []
+var nowTitle = 'nothing';
 
-// SavFav function created
-function SavFav() {
-  // savFav = () => { }     This is how u write the function with arrow
 
-  // push nowTitle intow boardtitles array
-  boardTitles.push(nowTitle);
 
-  // convert to string, this needs to happen before local storage
-  JSON.stringify(nowTitle);
-
-  // store boardtitle under Test title
-  localStorage.setItem("Test title", boardTitles);
-}
-
+// here is an example title pulled from atlas
 titledisplay = () => {
+  // access the atlas database
+  axios.get('https://www.boardgameatlas.com/api/search?name=scrabble&limit=100&client_id=JLBr5npPhV')
 
-  axios.get('https://www.boardgameatlas.com/api/search?name=monopoly&limit=100&client_id=JLBr5npPhV')
+    // display parameters I set
     .then(res => {
 
+      // declare now title as title from API Database
       let nowtitle = (res.data.games[0].name)
-
+      // console log test nowtitle
       console.log(nowtitle)
-
+      // Display title from API data base on HTML displaytitle
       document.getElementById('displaytitle').innerHTML = `<h4>${nowtitle}</h4>`;
-    })
-}
 
-titledisplay();
-
-document.getElementById('addfavBtn').addEventListener('click', event => {
-
-  event.preventDefault()
-
-
-  axios.get('https://www.boardgameatlas.com/api/search?name=monopoly&limit=100&client_id=JLBr5npPhV')
-    .then(res => {
-      console.log(res.data.games[0].name)
+      // save game title from API to local storage
+      localStorage.setItem("Game Title", nowtitle);
+      // stringify data
+      JSON.stringify(nowtitle);
+      // retrieve data from localsorage
+      let nowsavedtitle = localStorage.getItem("Game Title");
+      // console lof test nowsavedtitle
+      console.log(`this is it ${nowsavedtitle}`);
 
       let favElem = document.createElement('li')
 
       favElem.className = 'fav-list-item'
 
-      favElem.textContent = (res.data.games[0].name)
+      favElem.textContent = nowsavedtitle
 
       document.getElementById('favList').append(favElem)
 
       document.getElementById('')
 
-      SavFav();
-
-
     })
+
+  // for end of titledisplay function
+}
+
+titledisplay();
+
+
+
+
+
+// start of addfav click event
+document.getElementById('addfavBtn').addEventListener('click', event => {
+
+  event.preventDefault()
+
+
+  // axios.get('https://www.boardgameatlas.com/api/search?name=monopoly&limit=100&client_id=JLBr5npPhV')
+  //   .then(res => {
+  //     console.log(res.data.games[0].name)
+
+  //     let favElem = document.createElement('li')
+
+  //     favElem.className = 'fav-list-item'
+
+  //     favElem.textContent = (res.data.games[0].name)
+
+  //     document.getElementById('favList').append(favElem)
+
+  //     document.getElementById('')
+
+  // SavFav();
+
+
+  // })
 })
+
+
+// // SavFav function created
+// function SavFav() {
+//   // savFav = () => { }     This is how u write the function with arrow
+
+//   // push nowTitle intow boardtitles array
+//   boardTitles.push(nowtitle).value;
+
+//   // convert to string, this needs to happen before local storage
+//   JSON.stringify(nowtitle);
+
+//   // store boardtitle under Test title
+//   localStorage.setItem("Fav titles", nowtitle);
+// }
 
 
 
