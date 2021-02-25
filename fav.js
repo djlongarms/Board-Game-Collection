@@ -2,6 +2,37 @@
 // // Script for favorites list++
 
 // let titleArray = [] || JSON.parse(localStorage.getItem("Game Title"))
+// var boardTitles = []
+// var nowTitle = "";
+
+// SavFav function created
+function SavFav() {
+  // savFav = () => { }     This is how u write the function with arrow
+
+  // push nowTitle intow boardtitles array
+  boardTitles.push(nowTitle);
+
+  // convert to string, this needs to happen before local storage
+  JSON.stringify(nowTitle);
+
+  // store boardtitle under Test title
+  localStorage.setItem("Test title", boardTitles);
+}
+
+titledisplay = () => {
+
+  axios.get('https://www.boardgameatlas.com/api/search?name=monopoly&limit=100&client_id=JLBr5npPhV')
+    .then(res => {
+
+      let nowtitle = (res.data.games[0].name)
+
+      console.log(nowtitle)
+
+      document.getElementById('displaytitle').innerHTML = `<h4>${nowtitle}</h4>`;
+    })
+}
+
+titledisplay();
 
 document.getElementById('addfavBtn').addEventListener('click', event => {
 
@@ -21,6 +52,9 @@ document.getElementById('addfavBtn').addEventListener('click', event => {
       document.getElementById('favList').append(favElem)
 
       document.getElementById('')
+
+      SavFav();
+
 
     })
 })
@@ -61,21 +95,6 @@ document.getElementById('addfavBtn').addEventListener('click', event => {
 
 // })
 
-// // var boardTitles = []
-// // var nowTitle = "";
-
-// // SavFav function created
-// // function SavFav() {
-// // savFav = () => {}     This is how u write the function with arrow
-
-// // push nowTitle intow boardtitles array
-// // boardTitles.push(nowTitle);
-
-// // convert to string, this needs to happen before local storage
-// // JSON.stringify(nowTitle);
-
-// // store boardtitle under Test title
-// // localStorage.setItem("Test title", boardTitles);
 
 
 
