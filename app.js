@@ -12,12 +12,14 @@ document.addEventListener('DOMContentLoaded', function () {
 let titleArray = [] || JSON.parse(localStorage.getItem("Game Title"))
 
 document.getElementById('addfavBtn').addEventListener('click', event => {
+
   event.preventDefault();
 
 
   titleArray.forEach(element => {
 
-    let titleElem = document.createElement("p")
+    let titleElem = document.createElement("li")
+
     titleElem.textContent = element
 
     document.getElementById('testTitle').append(titleElem)
