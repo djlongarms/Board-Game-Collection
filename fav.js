@@ -22,6 +22,7 @@ titledisplay = () => {
       // Display title from API data base on HTML displaytitle
       document.getElementById('displaytitle').innerHTML = `<h4>${nowtitle}</h4>`;
 
+      // start the click event 
       document.getElementById('addfavBtn').addEventListener('click', event => {
 
         event.preventDefault()
