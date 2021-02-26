@@ -30,8 +30,12 @@ if(document.getElementById('wishList') !== null) {
   })
 }
 
-// Listens for click of a "Remove" button in the wishlist
+// Listens for click on the document of a "Remove" button in the wishlist
 document.addEventListener('click', event => {
+  // Prevents default
+  event.preventDefault()
+
+  // Checks to make sure "remove" button was clicked
   if(event.target.id === "removeWishBtn") {
     // Finds index of the item to be removed in the wishList array, then splices it out
     let index = wishList.indexOf(event.target.parentNode.childNodes[0].data)
