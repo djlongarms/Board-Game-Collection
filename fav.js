@@ -10,7 +10,7 @@ var nowTitle = 'nothing';
 // here is an example title pulled from atlas
 titledisplay = () => {
   // access the atlas database
-  axios.get('https://www.boardgameatlas.com/api/search?name=scrabble&limit=100&client_id=JLBr5npPhV')
+  axios.get('https://www.boardgameatlas.com/api/search?name=clue&limit=100&client_id=JLBr5npPhV')
 
     // display parameters I set
     .then(res => {
@@ -22,24 +22,29 @@ titledisplay = () => {
       // Display title from API data base on HTML displaytitle
       document.getElementById('displaytitle').innerHTML = `<h4>${nowtitle}</h4>`;
 
-      // save game title from API to local storage
-      localStorage.setItem("Game Title", nowtitle);
-      // stringify data
-      JSON.stringify(nowtitle);
-      // retrieve data from localsorage
-      let nowsavedtitle = localStorage.getItem("Game Title");
-      // console lof test nowsavedtitle
-      console.log(`this is it ${nowsavedtitle}`);
+      document.getElementById('addfavBtn').addEventListener('click', event => {
 
-      let favElem = document.createElement('li')
+        event.preventDefault()
 
-      favElem.className = 'fav-list-item'
+        // save game title from API to local storage
+        localStorage.setItem("Game Title", nowtitle);
+        // stringify data
+        JSON.stringify(nowtitle);
+        // retrieve data from localsorage
+        let nowsavedtitle = localStorage.getItem("Game Title");
+        // console lof test nowsavedtitle
+        console.log(`this is it ${nowsavedtitle}`);
 
-      favElem.textContent = nowsavedtitle
+        let favElem = document.createElement('li')
 
-      document.getElementById('favList').append(favElem)
+        favElem.className = 'fav-list-item'
 
-      document.getElementById('')
+        favElem.textContent = nowsavedtitle
+
+        document.getElementById('favList').append(favElem)
+
+        document.getElementById('')
+      })
 
     })
 
@@ -53,10 +58,10 @@ titledisplay();
 
 
 // start of addfav click event
-document.getElementById('addfavBtn').addEventListener('click', event => {
+// document.getElementById('addfavBtn').addEventListener('click', event => {
 
-  event.preventDefault()
-
+//   event.preventDefault()
+// })
 
   // axios.get('https://www.boardgameatlas.com/api/search?name=monopoly&limit=100&client_id=JLBr5npPhV')
   //   .then(res => {
@@ -76,7 +81,7 @@ document.getElementById('addfavBtn').addEventListener('click', event => {
 
 
   // })
-})
+
 
 
 // // SavFav function created
