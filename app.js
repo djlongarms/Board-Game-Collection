@@ -40,7 +40,6 @@ document.addEventListener('click', event => {
     // Finds index of the item to be removed in the wishList array, then splices it out
     let index = wishList.indexOf(event.target.parentNode.childNodes[0].data)
     wishList.splice(index, 1)
-    console
     
     // Updates local storage to the new array
     localStorage.setItem('wishList', JSON.stringify(wishList))
