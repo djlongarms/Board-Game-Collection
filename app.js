@@ -4,4 +4,9 @@ document.addEventListener('DOMContentLoaded', function () {
   var instances = M.Sidenav.init(elems, {});
 });
 // end of script for nav bar
-console.log('yolo')
+
+document.addEventListener('click', event => {
+  if (event.target.id === 'addWishBtn') {
+    console.log("It worked!")
+  }
+})
