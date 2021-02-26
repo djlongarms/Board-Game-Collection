@@ -2,15 +2,19 @@
 // // Script for favorites list++
 
 // let titleArray = [] || JSON.parse(localStorage.getItem("Game Title"))
-var boardTitles = []
-var nowTitle = 'nothing';
+
+let boardtitles = JSON.parse(localStorage.getItem("Game Title")) || [];
+
+console.log(boardtitles);
+let nowtitle = '';
+let displayli = '';
 
 
 
 // here is an example title pulled from atlas
 titledisplay = () => {
   // access the atlas database
-  axios.get('https://www.boardgameatlas.com/api/search?name=clue&limit=100&client_id=JLBr5npPhV')
+  axios.get('https://www.boardgameatlas.com/api/search?name=scrabble&limit=100&client_id=JLBr5npPhV')
 
     // display parameters I set
     .then(res => {
@@ -25,10 +29,10 @@ titledisplay = () => {
       // start the click event 
       document.getElementById('addfavBtn').addEventListener('click', event => {
 
-        event.preventDefault()
+        event.preventDefault();
 
         // save game title from API to local storage
-        localStorage.setItem("Game Title", nowtitle);
+        localStorage.setItem("Fav Game Title", nowtitle);
         // stringify data
         JSON.stringify(nowtitle);
         // retrieve data from localsorage
@@ -36,15 +40,41 @@ titledisplay = () => {
         // console lof test nowsavedtitle
         console.log(`this is it ${nowsavedtitle}`);
 
+        // push nowTitle intow boardtitles array
+        boardtitles.push(nowtitle).value
+
+        // save title array to localstorage
+        localStorage.setItem("Fav Game Title Array", boardtitles);
+
+        // strigify boardtitles
+        JSON.stringify(boardtitles);
+
+        // Retreve boardtitles and save retreved info to savedboardtitles
+        let savedboardtitles = localStorage.getItem("Fav Game Title Array");
+
+        console.log(`This is also it ${savedboardtitles}`)
+
+        displaytitleli = () => {
+
+          for (i = 0; i < boardtitles.length; i++)
+            displayli = boardtitles[i]
+        };
+
+        displaytitleli();
+
+        // declaring favElem to = an element <li>
         let favElem = document.createElement('li')
 
+        // giving favElem created a class name of fav-list-item
         favElem.className = 'fav-list-item'
 
-        favElem.textContent = nowsavedtitle
+        // favElem will be the array savedboardtitles
+        favElem.textContent = displayli;
 
+        // add favElem to fav list id
         document.getElementById('favList').append(favElem)
 
-        document.getElementById('')
+
       })
 
     })
