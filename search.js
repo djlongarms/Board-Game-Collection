@@ -1,5 +1,4 @@
 let searches = JSON.parse(localStorage.getItem('searches')) || []
-let i = 0
 searches.forEach(searchItem => {
   let newEntry = document.createElement('li')
   newEntry.className = 'collection-item'
