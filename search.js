@@ -1,4 +1,11 @@
-// let games = JSON.parse(localStorage.getItem('searches')) || []
+let searches = JSON.parse(localStorage.getItem('searches')) || []
+let i = 0
+searches.forEach(searchItem => {
+  let newEntry = document.createElement('li')
+  newEntry.className = 'collection-item'
+  newEntry.textContent = searchItem.name
+  document.getElementById('search-history').append(newEntry)
+});
 
 document.getElementById('search-btn').addEventListener('click', event => {
   event.preventDefault()
@@ -6,7 +13,11 @@ document.getElementById('search-btn').addEventListener('click', event => {
   let newEntry = document.createElement('li')
   newEntry.className = 'collection-item'
   newEntry.textContent = document.getElementById('game').value
-  let gameElem = localStorage.setItem('searches', JSON.stringify(document.getElementById('game').value))
+  let searchItem = {
+    name: document.getElementById('game').value
+  }
+  searches.push(searchItem)
+  localStorage.setItem('searches', JSON.stringify(searches))
   // games.push(gameElem)
   document.getElementById('search-history').append(newEntry)
 
@@ -149,3 +160,7 @@ var showRes = () => {
     })
     .catch(err => console.error(err))
 }
+document.getElementById('clear').addEventListener('click', () => {
+  localStorage.removeItem('searches')
+  location.reload()
+})
