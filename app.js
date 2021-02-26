@@ -30,8 +30,18 @@ if(document.getElementById('wishList') !== null) {
   })
 }
 
+// Listens for click of a "Remove" button in the wishlist
 document.addEventListener('click', event => {
   if(event.target.id === "removeWishBtn") {
-    console.log("Working!")
+    // Finds index of the item to be removed in the wishList array, then splices it out
+    let index = wishList.indexOf(event.target.parentNode.childNodes[0].data)
+    wishList.splice(index, 1)
+    console
+    
+    // Updates local storage to the new array
+    localStorage.setItem('wishList', JSON.stringify(wishList))
+
+    // Removes element from the page
+    event.target.parentNode.remove(this)
   }
 })
