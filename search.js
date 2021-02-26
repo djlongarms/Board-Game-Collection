@@ -1,18 +1,4 @@
-document.addEventListener('click', event => {
-  event.preventDefault()
-
-  showRes()
-})
-
-
-
-var showRes = () => {
-  axios.get(`https://api.boardgameatlas.com/api/search?name=${document.getElementById('game').value}&limit=10&client_id=1rXDU67y2s`)
-    .then(res => {
-      console.log(res.games)
-      let results = document.getElementById("")
-      results.innerHTML = `
-      <div class="row">let searches = JSON.parse(localStorage.getItem('searches')) || []
+let searches = JSON.parse(localStorage.getItem('searches')) || []
 searches.forEach(searchItem => {
   let newEntry = document.createElement('li')
   newEntry.className = 'collection-item'
@@ -171,15 +157,9 @@ var showRes = () => {
         </div>
         `
     })
-        .catch(err => console.error(err))
-    }
-document.getElementById('clear').addEventListener('click', () => {
-      localStorage.removeItem('searches')
-      location.reload()
-    })
-        <p>${res.games}</p>
-      </div>
-      `
-    })
     .catch(err => console.error(err))
 }
+document.getElementById('clear').addEventListener('click', () => {
+  localStorage.removeItem('searches')
+  location.reload()
+})
