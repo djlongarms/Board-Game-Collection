@@ -59,7 +59,7 @@ let favlist = JSON.parse(localStorage.getItem('favlist')) || []
 document.addEventListener('click', event => {
   if (event.target.id === 'addfavBtn') {
     favlist.push(event.target.parentNode.childNodes[1].tectContent)
-    localStorage.setItem('favList', JSON.stringify(favlist))
+    localStorage.setItem('favlist', JSON.stringify(favlist))
   }
 })
 
@@ -69,7 +69,7 @@ if (document.getElementById('favlist') !== null) {
   favlist.forEach(element => {
     // create li, assigns class, add name, add remove btn
     let newFavItem = document.createElement("li")
-    newFavItem.classList.add("collection-item")
+    newFavItem.classList.add("favcollection-item")
     newFavItem.innerHTML = `${element}<button id="removeFavBtn" type="submit" class="secondary-content">Remove</button>`
 
     // appends item to favlist 
