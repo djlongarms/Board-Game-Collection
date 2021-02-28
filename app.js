@@ -43,20 +43,28 @@ document.getElementsByName('removeWishBtn').forEach( element => {
   })
 })
 
-// Gets the top 
-axios.get('https://www.boardgameatlas.com/api/search?gt_price=9.99&limit=100&order_by=popularity&pretty=true&client_id=JLBr5npPhV')
-.then(res => {
-  let randomIndex = Math.floor(Math.random() * 100)
-  let randomGame = document.createElement("li")
-  randomGame.classList.add("collection-item")
-  randomGame.innerHTML = `
-  <p>Name: ${res.data.games[randomIndex].name}</p>
-  <p>Price: ${res.data.games[randomIndex].price}</p>
-  <p>Description: ${res.data.games[randomIndex].description_preview}</p>
-  `
-  document.getElementById('trending').append(randomGame)
-}) 
-.catch(error => console.log(error))
+// Gets a random popular game and appends it on the favorites page "Popular Game!" section
+if(document.getElementById('trending') !== null) {
+  // Calls API to get list of popular games
+  axios.get('https://www.boardgameatlas.com/api/search?gt_price=9.99&limit=100&order_by=popularity&pretty=true&client_id=JLBr5npPhV')
+  .then(res => {
+    // Gets random index between 0 and 99
+    let randomIndex = Math.floor(Math.random() * 100)
+
+    // Creates "li" element and adds classes, as well as HTML based on random game choice
+    let randomGame = document.createElement("li")
+    randomGame.classList.add("collection-item")
+    randomGame.innerHTML = `
+    <p>Name: ${res.data.games[randomIndex].name}</p>
+    <p>Price: ${res.data.games[randomIndex].price}</p>
+    <p>Description: ${res.data.games[randomIndex].description_preview}</p>
+    `
+
+    // Appends game to the proper section
+    document.getElementById('trending').append(randomGame)
+  }) 
+  .catch(error => console.log(error))
+}
 
 
 // FAVLIST
