@@ -58,7 +58,41 @@
   </div>
 </nav>
 
-<main></main>
+<!-- code for carousel -->
+<main>
+  <h2 class="center">Tutorials for Featured Boardgames!</h2>
+  <div class="container">
+    <div class="row">
+      <div class="carousel carousel-slider">
+        <a class="carousel-item" href="#">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/8Yj0Y3GKE40" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+        </a>
+        <a class="carousel-item" href="#">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/4JhFhyvGdik" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+        </a>
+        <a class="carousel-item" href="#">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/RK8defbdNEA" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+        </a>
+        <a class="carousel-item" href="#">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/hsUSbefouCc" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+        </a>
+        <a class="carousel-item" href="#">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/lgDgcLI2B0U" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+        </a>
+      </div>
+    </div>
+  </div>
+</main>
   
   <footer class="page-footer">
     <div class="container">
@@ -74,13 +108,17 @@
 
   
   
-  <!-- materialize script -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-
+  
   <!-- script to link javascript file -->
 
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var elems = document.querySelectorAll('.carousel');
+      var instances = M.Carousel.init(elems, {});
+    });
+  </script>
   <!-- <script src="app.js"></script> -->
 </body>
 </html>

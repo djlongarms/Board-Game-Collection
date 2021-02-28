@@ -17,7 +17,7 @@ document.addEventListener('click', event => {
 })
 
 // Checks to see whether or not the wishList item is present on the page
-if(document.getElementById('wishList') !== null) {
+if (document.getElementById('wishList') !== null) {
   // Cycles through the array of wishlist items
   wishList.forEach(element => {
     // Creates list item, gives it the proper class, then adds game name and a remove button
@@ -32,12 +32,12 @@ if(document.getElementById('wishList') !== null) {
 
 // Listens for click of a "Remove" button in the wishlist
 document.addEventListener('click', event => {
-  if(event.target.id === "removeWishBtn") {
+  if (event.target.id === "removeWishBtn") {
     // Finds index of the item to be removed in the wishList array, then splices it out
     let index = wishList.indexOf(event.target.parentNode.childNodes[0].data)
     wishList.splice(index, 1)
     console
-    
+
     // Updates local storage to the new array
     localStorage.setItem('wishList', JSON.stringify(wishList))
 

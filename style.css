@@ -34,7 +34,6 @@ main {
   display: block;
   margin-left: auto;
   margin-right: auto;
-
 }
 
 .spaceBetween {
@@ -58,13 +57,15 @@ main {
 }
 
 .box {
-  border-radius:0.5rem;
+  border-radius: 0.5rem;
   border: 1px solid black;
 }
-.center{
+
+.center {
   text-align: center;
 }
-hr{
+
+hr {
   width: 100%;
 }
 
@@ -78,6 +79,15 @@ hr{
     margin-bottom: 5rem;
     height: 30rem;
   }
+}
+
+.carousel {
+  border: 2px solid;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
 }
 
 #resultsDiv {
