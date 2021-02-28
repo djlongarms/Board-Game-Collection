@@ -14,7 +14,7 @@ if(document.getElementById('wishList') !== null) {
   wishList.forEach(element => {
     // Creates list item, gives it the proper class, then adds game name and a remove button
     let newWishItem = document.createElement("li")
-    newWishItem.classList.add("collection-item")
+    newWishItem.classList.add("collection-item center")
     newWishItem.innerHTML = `${element}<button name="removeWishBtn" type="submit"class="secondary-content">Remove</button>`
 
     // Appends item to the wishlist on the page
@@ -42,3 +42,19 @@ document.getElementsByName('removeWishBtn').forEach( element => {
     }
   })
 })
+
+// Gets the top 
+axios.get('https://www.boardgameatlas.com/api/search?gt_price=9.99limit=100&order_by=popularity&pretty=true&client_id=JLBr5npPhV')
+.then(res => {
+  let randomIndex = Math.floor(Math.random() * 25)
+  let randomGame = document.createElement("li")
+  randomGame.classList.add("collection-item")
+  randomGame.innerHTML = `
+  <p>Name: ${res.data.games[randomIndex].name}</p>
+  <p>Price: ${res.data.games[randomIndex].price}</p>
+  <p>Description: ${res.data.games[randomIndex].description_preview}</p>
+  `
+  document.getElementById('trending').append(randomGame)
+  console.log(res)
+}) 
+.catch(error => console.log(error))
