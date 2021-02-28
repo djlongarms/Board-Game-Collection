@@ -52,44 +52,45 @@ document.addEventListener('click', event => {
 
 
 // FAVLIST
-// get favlist array
-let favlist = JSON.parse(localStorage.getItem('favlist')) || []
+// get favList array
+let favList = JSON.parse(localStorage.getItem('favList')) || []
+console.log(favList)
 
-// Listen for click of a add to favlist btn
+// Listen for click of a add to favList btn
 document.addEventListener('click', event => {
   if (event.target.id === 'addfavBtn') {
-    favlist.push(event.target.parentNode.childNodes[1].tectContent)
-    localStorage.setItem('favlist', JSON.stringify(favlist))
+    favList.push(event.target.parentNode.childNodes[1].textContent)
+    localStorage.setItem('favList', JSON.stringify(favList))
   }
 })
 
-// check to see if favlist item is present on page
-if (document.getElementById('favlist') !== null) {
+// check to see if favList item is present on page
+if (document.getElementById('favList') !== null) {
   // cycle through fav list array
-  favlist.forEach(element => {
+  favList.forEach(element => {
     // create li, assigns class, add name, add remove btn
     let newFavItem = document.createElement("li")
-    newFavItem.classList.add("favcollection-item")
+    newFavItem.classList.add("collection-item")
     newFavItem.innerHTML = `${element}<button id="removeFavBtn" type="submit" class="secondary-content">Remove</button>`
 
-    // appends item to favlist 
+    // appends item to favList 
     document.getElementById('favList').append(newFavItem)
   })
 }
 
-// listen for click of a remove btn in the favlist
+// listen for click of a remove btn in the favList
 document.addEventListener('click', event => {
   // prevent default
   event.preventDefault()
 
   // checks to make sure remove btn was clicked
   if (event.target.id === "removeFavBtn") {
-    // finds index of the item to be removed in the favlist array, then splices it out
-    let index = favlist.indexOf(event.target.parentNode.childNodes[0].data)
-    favlist.splice(index, 1)
+    // finds index of the item to be removed in the favList array, then splices it out
+    let index = favList.indexOf(event.target.parentNode.childNodes[0].data)
+    favList.splice(index, 1)
 
     // updates local storage tot he new array
-    localStorage.setItem('favlist', JSON.stringify(favlist))
+    localStorage.setItem('favList', JSON.stringify(favList))
 
     // removes element from the page
     event.target.parentNode.remove(this)
