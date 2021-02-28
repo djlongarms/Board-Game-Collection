@@ -55,6 +55,5 @@ axios.get('https://www.boardgameatlas.com/api/search?gt_price=9.99&limit=100&ord
   <p>Description: ${res.data.games[randomIndex].description_preview}</p>
   `
   document.getElementById('trending').append(randomGame)
-  console.log(res)
 }) 
 .catch(error => console.log(error))

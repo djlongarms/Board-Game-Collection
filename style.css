@@ -95,3 +95,7 @@ hr {
   -ms-border-radius: 10px;
   -o-border-radius: 10px;
 }
+
+#trendingDiv {
+  height: auto;
+}
