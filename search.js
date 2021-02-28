@@ -45,7 +45,7 @@ var showRes = () => {
             <img src="${gameElem[0].images.small}">
             <p>Max Players: ${gameElem[0].max_players}</p>
             <p>Min Players: ${gameElem[0].min_players}</p>
-             <button class="btn waves-effect waves-light" type="submit" id="addWishBtn">Add to Wishlist</button>
+             <button class="btn waves-effect waves-light" type="submit" name="addWishBtn">Add to Wishlist</button>
             <button class="btn waves-effect waves-light" type="submit" id="addfavBtn">Add to Favorites</button>
           </div>
           <div class="col s9">
@@ -59,7 +59,7 @@ var showRes = () => {
             <img src="${gameElem[1].images.small}">
             <p>Max Players: ${gameElem[1].max_players}</p>
             <p>Min Players: ${gameElem[1].min_players}</p>
-            <button class="btn waves-effect waves-light" type="submit" id="addWishBtn">Add to Wishlist</button>
+            <button class="btn waves-effect waves-light" type="submit" name="addWishBtn">Add to Wishlist</button>
             <button class="btn waves-effect waves-light" type="submit" id="addfavBtn">Add to Favorites</button>
           </div>
           <div class="col s9">
@@ -73,7 +73,7 @@ var showRes = () => {
             <img src="${gameElem[2].images.small}">
             <p>Max Players: ${gameElem[2].max_players}</p>
             <p>Min Players: ${gameElem[2].min_players}</p>
-            <button class="btn waves-effect waves-light" type="submit" id="addWishBtn">Add to Wishlist</button>
+            <button class="btn waves-effect waves-light" type="submit" name="addWishBtn">Add to Wishlist</button>
             <button class="btn waves-effect waves-light" type="submit" id="addfavBtn">Add to Favorites</button>            
           </div>
           <div class="col s9">
@@ -87,7 +87,7 @@ var showRes = () => {
             <img src="${gameElem[0].images.small}">
             <p>Max Players: ${gameElem[3].max_players}</p>
             <p>Min Players: ${gameElem[3].min_players}</p>
-            <button class="btn waves-effect waves-light" type="submit" id="addWishBtn">Add to Wishlist</button>
+            <button class="btn waves-effect waves-light" type="submit" name="addWishBtn">Add to Wishlist</button>
             <button class="btn waves-effect waves-light" type="submit" id="addfavBtn">Add to Favorites</button>            
           </div>
           <div class="col s9">
@@ -101,7 +101,7 @@ var showRes = () => {
             <img src="${gameElem[4].images.small}">
             <p>Max Players: ${gameElem[4].max_players}</p>
             <p>Min Players: ${gameElem[4].min_players}</p>
-            <button class="btn waves-effect waves-light" type="submit" id="addWishBtn">Add to Wishlist</button>
+            <button class="btn waves-effect waves-light" type="submit" name="addWishBtn">Add to Wishlist</button>
             <button class="btn waves-effect waves-light" type="submit" id="addfavBtn">Add to Favorites</button>            
           </div>
           <div class="col s9">
@@ -115,7 +115,7 @@ var showRes = () => {
             <img src="${gameElem[5].images.small}">
             <p>Max Players: ${gameElem[5].max_players}</p>
             <p>Min Players: ${gameElem[5].min_players}</p>
-            <button class="btn waves-effect waves-light" type="submit" id="addWishBtn">Add to Wishlist</button>
+            <button class="btn waves-effect waves-light" type="submit" name="addWishBtn">Add to Wishlist</button>
             <button class="btn waves-effect waves-light" type="submit" id="addfavBtn">Add to Favorites</button>            
           </div>
           <div class="col s9">
@@ -129,7 +129,7 @@ var showRes = () => {
             <img src="${gameElem[6].images.small}">
             <p>Max Players: ${gameElem[6].max_players}</p>
             <p>Min Players: ${gameElem[6].min_players}</p>
-            <button class="btn waves-effect waves-light" type="submit" id="addWishBtn">Add to Wishlist</button>
+            <button class="btn waves-effect waves-light" type="submit" name="addWishBtn">Add to Wishlist</button>
             <button class="btn waves-effect waves-light" type="submit" id="addfavBtn">Add to Favorites</button>            
           </div>
           <div class="col s9">
@@ -143,7 +143,7 @@ var showRes = () => {
             <img src="${gameElem[7].images.small}">
             <p>Max Players: ${gameElem[7].max_players}</p>
             <p>Min Players: ${gameElem[7].min_players}</p>
-            <button class="btn waves-effect waves-light" type="submit" id="addWishBtn">Add to Wishlist</button>
+            <button class="btn waves-effect waves-light" type="submit" name="addWishBtn">Add to Wishlist</button>
             <button class="btn waves-effect waves-light" type="submit" id="addfavBtn">Add to Favorites</button>            
           </div>
           <div class="col s9">
@@ -157,7 +157,7 @@ var showRes = () => {
             <img src="${gameElem[8].images.small}">
             <p>Max Players: ${gameElem[8].max_players}</p>
             <p>Min Players: ${gameElem[8].min_players}</p>
-            <button class="btn waves-effect waves-light" type="submit" id="addWishBtn">Add to Wishlist</button>
+            <button class="btn waves-effect waves-light" type="submit" name="addWishBtn">Add to Wishlist</button>
             <button class="btn waves-effect waves-light" type="submit" id="addfavBtn">Add to Favorites</button>            
           </div>
           <div class="col s9">
@@ -171,7 +171,7 @@ var showRes = () => {
             <img src="${gameElem[9].images.small}">
             <p>Max Players: ${gameElem[9].max_players}</p>
             <p>Min Players: ${gameElem[9].min_players}</p>
-            <button class="btn waves-effect waves-light" type="submit" id="addWishBtn">Add to Wishlist</button>
+            <button class="btn waves-effect waves-light" type="submit" name="addWishBtn">Add to Wishlist</button>
             <button class="btn waves-effect waves-light" type="submit" id="addfavBtn">Add to Favorites</button>            
           </div>
           <div class="col s9">
@@ -183,6 +183,22 @@ var showRes = () => {
 
 
 
+    })
+    .catch(err => console.error(err))
+}
+
+      // Gets each newly created "Add to Wishlist Button"
+      document.getElementsByName('addWishBtn').forEach(element => {
+        // Adds event listener for each button
+        element.addEventListener('click', event => {
+          event.preventDefault()
+
+          wishList.push(event.target.parentNode.childNodes[1].textContent)
+          localStorage.setItem('wishList', JSON.stringify(wishList))
+
+          console.log(wishList)
+        })
+      })
     })
     .catch(err => console.error(err))
 }
