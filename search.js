@@ -35,7 +35,6 @@ var showRes = () => {
   axios.get(`https://api.boardgameatlas.com/api/search?name=${input}&limit=10&client_id=1rXDU67y2s`)
     .then(res => {
       let gameElem = res.data.games
-      console.log(gameElem)
       let results = document.getElementById("resultsDiv")
       //updates results div with results from search
       let searchResult = results.innerHTML = `
@@ -180,26 +179,21 @@ var showRes = () => {
         </div>
         `
 
+      // Gets each newly created "Add to Wishlist Button"
+      document.getElementsByName('addWishBtn').forEach(element => {
+        // Adds event listener for each button
+        element.addEventListener('click', event => {
+          event.preventDefault()
 
+          wishList.push(event.target.parentNode.childNodes[1].textContent)
+          localStorage.setItem('wishList', JSON.stringify(wishList))
 
-
+          console.log(wishList)
+        })
+      })
     })
     .catch(err => console.error(err))
 }
-
-// Gets each newly created "Add to Wishlist Button"
-document.getElementsByName('addWishBtn').forEach(element => {
-  // Adds event listener for each button
-  element.addEventListener('click', event => {
-    event.preventDefault()
-
-    wishList.push(event.target.parentNode.childNodes[1].textContent)
-    localStorage.setItem('wishList', JSON.stringify(wishList))
-
-    console.log(wishList)
-  })
-})
-
 
 //deletes search history and reloads page
 document.getElementById('clear').addEventListener('click', () => {
