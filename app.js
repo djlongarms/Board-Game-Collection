@@ -44,9 +44,9 @@ document.getElementsByName('removeWishBtn').forEach( element => {
 })
 
 // Gets the top 
-axios.get('https://www.boardgameatlas.com/api/search?gt_price=9.99limit=100&order_by=popularity&pretty=true&client_id=JLBr5npPhV')
+axios.get('https://www.boardgameatlas.com/api/search?gt_price=9.99&limit=100&order_by=popularity&pretty=true&client_id=JLBr5npPhV')
 .then(res => {
-  let randomIndex = Math.floor(Math.random() * 25)
+  let randomIndex = Math.floor(Math.random() * 100)
   let randomGame = document.createElement("li")
   randomGame.classList.add("collection-item")
   randomGame.innerHTML = `
