@@ -47,7 +47,9 @@ main {
 }
 
 .otherCol {
-  height: 50rem;
+  height: 35rem;
+  margin-top: 4rem;
+  margin-left: 20px;
 }
 
 .fav {
@@ -72,7 +74,10 @@ hr {
 @media only screen and (max-width: 992px) {
   .carouselCol {
     height: 40rem;
+    width: 100%;
     margin-top: 5rem;
+    margin-left: 0px;
+    margin-right: 0px;
   }
   .otherCol {
     margin-top: 5rem;
@@ -98,4 +103,8 @@ hr {
   -moz-border-radius: 10px;
   -ms-border-radius: 10px;
   -o-border-radius: 10px;
+}
+
+#trendingDiv {
+  height: auto;
 }
