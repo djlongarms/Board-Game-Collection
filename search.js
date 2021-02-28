@@ -9,7 +9,7 @@ searches.forEach(searchItem => {
 
 document.getElementById('search-btn').addEventListener('click', event => {
   event.preventDefault()
-//adds items to search history for the first time
+  //adds items to search history for the first time
   let newEntry = document.createElement('li')
   newEntry.className = 'collection-item'
   newEntry.textContent = document.getElementById('game').value
@@ -27,7 +27,7 @@ document.getElementById('search-btn').addEventListener('click', event => {
   document.getElementById('game').value = ''
 })
 
-                                                        //main search function
+//main search function
 
 var showRes = () => {
   let input = document.getElementById('game').value
@@ -187,29 +187,28 @@ var showRes = () => {
     .catch(err => console.error(err))
 }
 
-      // Gets each newly created "Add to Wishlist Button"
-      document.getElementsByName('addWishBtn').forEach(element => {
-        // Adds event listener for each button
-        element.addEventListener('click', event => {
-          event.preventDefault()
+// Gets each newly created "Add to Wishlist Button"
+document.getElementsByName('addWishBtn').forEach(element => {
+  // Adds event listener for each button
+  element.addEventListener('click', event => {
+    event.preventDefault()
 
-          wishList.push(event.target.parentNode.childNodes[1].textContent)
-          localStorage.setItem('wishList', JSON.stringify(wishList))
+    wishList.push(event.target.parentNode.childNodes[1].textContent)
+    localStorage.setItem('wishList', JSON.stringify(wishList))
 
-          console.log(wishList)
-        })
-      })
-    })
-    .catch(err => console.error(err))
-}
-                                                //deletes search history and reloads page
+    console.log(wishList)
+  })
+})
+
+
+//deletes search history and reloads page
 document.getElementById('clear').addEventListener('click', () => {
   localStorage.removeItem('searches')
   location.reload()
 })
 
 document.addEventListener('click', event => {
-//from the updated search results you can click any title to bring up an expanded search entry that contains a bigger picture and an amazon link 
+  //from the updated search results you can click any title to bring up an expanded search entry that contains a bigger picture and an amazon link 
   if (event.target.classList.contains('gameTitle')) {
     let linkInput = event.target.textContent
 
@@ -238,17 +237,18 @@ document.addEventListener('click', event => {
             let searchResult = results.innerHTML = `
         <div class="row">
           <div class="col s12">
-            <h2 class = "center">${gameElem[0].name}</h2>
+          <div><h2 class = "center">${gameElem[0].name}</h2>
+          </div>  
             <img class = "centerImg" src="${gameElem[0].images.medium}">
-
+            <button class="btn waves-effect waves-light" type="submit" id="addWishBtn">Add to Wishlist</button>
+            <button class="btn waves-effect waves-light" type="submit" id="addfavBtn">Add to Favorites</button>  
           </div>
           <div class="col s12">
             ${gameElem[0].description}
             <p>Max Players: ${gameElem[0].max_players}</p>
             <p>Min Players: ${gameElem[0].min_players}</p>
             <p><a href="${amzLink}">${amzLink}</a></p>
-            <button class="btn waves-effect waves-light" type="submit" id="addWishBtn">Add to Wishlist</button>
-            <button class="btn waves-effect waves-light" type="submit" id="addfavBtn">Add to Favorites</button>            
+          
           </div>
         </div> `
           })
@@ -257,7 +257,7 @@ document.addEventListener('click', event => {
         console.error(error);
       })
   }
-                            //this function makes search history entries clickable to redo the search
+  //this function makes search history entries clickable to redo the search
   if (event.target.classList.contains('collection-item')) {
     let redo = event.target.textContent
 
