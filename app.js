@@ -9,12 +9,12 @@ document.addEventListener('DOMContentLoaded', function () {
 let wishList = JSON.parse(localStorage.getItem('wishList')) || []
 
 // Checks to see whether or not the wishList item is present on the page
-if(document.getElementById('wishList') !== null) {
+if (document.getElementById('wishList') !== null) {
   // Cycles through the array of wishlist items
   wishList.forEach(element => {
     // Creates list item, gives it the proper class, then adds game name and a remove button
     let newWishItem = document.createElement("li")
-    newWishItem.classList.add("collection-item center")
+    newWishItem.classList.add("collection-item", "center")
     newWishItem.innerHTML = `${element}<button name="removeWishBtn" type="submit"class="secondary-content">Remove</button>`
 
     // Appends item to the wishlist on the page
@@ -57,3 +57,51 @@ axios.get('https://www.boardgameatlas.com/api/search?gt_price=9.99&limit=100&ord
   document.getElementById('trending').append(randomGame)
 }) 
 .catch(error => console.log(error))
+
+
+// FAVLIST
+// get favList array
+let favList = JSON.parse(localStorage.getItem('favList')) || []
+
+// Listen for click of a add to favList btn
+document.addEventListener('click', event => {
+  if (event.target.id === 'addfavBtn') {
+    favList.push(event.target.parentNode.childNodes[1].textContent)
+    localStorage.setItem('favList', JSON.stringify(favList))
+  }
+})
+
+// check to see if favList item is present on page
+if (document.getElementById('favList') !== null) {
+  // cycle through fav list array
+  favList.forEach(element => {
+    // create li, assigns class, add name, add remove btn
+    let newFavItem = document.createElement("li")
+    newFavItem.classList.add("collection-item")
+    newFavItem.innerHTML = `${element}<button name="removeFavBtn" type="submit" class="secondary-content">Remove</button>`
+
+    // appends item to favList 
+    document.getElementById('favList').append(newFavItem)
+  })
+}
+
+// listen for click of a remove btn in the favList
+document.getElementsByName('removeFavBtn').forEach(element => {
+  element.addEventListener('click', event => {
+    // prevent default
+    event.preventDefault()
+
+    // checks to make sure remove btn was clicked
+    if (event.target.name === "removeFavBtn") {
+      // finds index of the item to be removed in the favList array, then splices it out
+      let index = favList.indexOf(event.target.parentNode.childNodes[0].data)
+      favList.splice(index, 1)
+
+      // updates local storage tot he new array
+      localStorage.setItem('favList', JSON.stringify(favList))
+
+      // removes element from the page
+      event.target.parentNode.remove(this)
+    }
+  })
+})
