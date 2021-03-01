@@ -79,6 +79,14 @@ document.addEventListener('click', event => {
   }
 })
 
+// Listen for click of a add to wishList btn
+document.addEventListener('click', event => {
+  if (event.target.id === 'addWishBtn') {
+    wishList.push(event.target.parentNode.childNodes[1].textContent)
+    localStorage.setItem('wishList', JSON.stringify(wishList))
+  }
+})
+
 // check to see if favList item is present on page
 if (document.getElementById('favList') !== null) {
   // cycle through fav list array
