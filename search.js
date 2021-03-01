@@ -195,6 +195,8 @@ var showRes = () => {
     .catch(err => console.error(err))
 }
 
+
+
 //deletes search history and reloads page
 document.getElementById('clear').addEventListener('click', () => {
   localStorage.removeItem('searches')
@@ -231,10 +233,9 @@ document.addEventListener('click', event => {
             let searchResult = results.innerHTML = `
         <div class="row">
           <div class="col s12">
-          <div><h2 class = "center">${gameElem[0].name}</h2>
-          </div>  
+          <div><h2 class = "center">${gameElem[0].name}</h2></div>  
             <img class = "centerImg" src="${gameElem[0].images.medium}">
-            <button class="btn waves-effect waves-light" type="submit" id="addWishBtn">Add to Wishlist</button>
+            <button class="btn waves-effect waves-light" type="submit" name="addWishBtn">Add to Wishlist</button>
             <button class="btn waves-effect waves-light" type="submit" id="addfavBtn">Add to Favorites</button>  
           </div>
           <div class="col s12">
@@ -245,7 +246,19 @@ document.addEventListener('click', event => {
           
           </div>
         </div> `
+
+            document.getElementsByName('addWishBtn').forEach(element => {
+              // Adds event listener for each button
+              element.addEventListener('click', event => {
+                event.preventDefault()
+
+                wishList.push(event.target.parentNode.childNodes[1].textContent)
+                localStorage.setItem('wishList', JSON.stringify(wishList))
+
+                console.log(wishList)
+            })
           })
+        })
       })
       .catch(error => {
         console.error(error);
