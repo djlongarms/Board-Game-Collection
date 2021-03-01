@@ -105,6 +105,23 @@ hr {
   -o-border-radius: 10px;
 }
 
+.gameTitle:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.collection-item:hover {
+  text-decoration: underline;
+  cursor: pointer;
+
+}
+
+.centerImg {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
 #trendingDiv {
   height: auto;
 }
