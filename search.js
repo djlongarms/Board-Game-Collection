@@ -414,13 +414,18 @@ document.addEventListener('click', event => {
           </div>
         </div>
         `
+        document.getElementsByName('addWishBtn').forEach(element => {
+          // Adds event listener for each button
+          element.addEventListener('click', event => {
+            event.preventDefault()
 
+            wishList.push(event.target.parentNode.childNodes[1].textContent)
+            localStorage.setItem('wishList', JSON.stringify(wishList))
 
-
-
+            console.log(wishList)
+          })
+        })
       })
       .catch(err => console.error(err))
-
   }
-
 })
